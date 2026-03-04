@@ -8,14 +8,14 @@
         "description": "核心防御模式选择 (可通过指令切换)",
         "type": "string",
         "enum": [
-            {"value": "sentry", "label": "哨兵模式 (极速)"},
-            {"value": "aegis", "label": "神盾模式 (均衡)"},
-            {"value": "scorch", "label": "焦土模式 (强硬)"},
-            {"value": "intercept", "label": "拦截模式 (经典)"}
+            {"value": "passive", "label": "观察模式 (Passive)"},
+            {"value": "standard", "label": "标准模式 (Standard)"},
+            {"value": "strict", "label": "严格模式 (Strict)"},
+            {"value": "aggressive", "label": "激进模式 (Aggressive)"}
         ],
-        "default": "sentry",
+        "default": "strict",
         "ui:widget": "select",
-        "hint": "选择插件的核心防御策略。\n- 哨兵模式(sentry): 启发式巡航，命中高风险时自动加固提示词，性能优先。\n- 神盾模式(aegis): 启发式 + LLM 复核，兼顾安全性与体验。\n- 焦土模式(scorch): 命中风险即强制改写为拦截提示，最严格。\n- 拦截模式(intercept): 命中风险直接中止事件，兼容性最佳。\n\n快捷指令：管理员可发送 `/切换防护模式` 循环切换。",
+        "hint": "选择插件的核心防御策略。\n- 观察模式(passive): 仅记录日志，不拦截任何请求。\n- 标准模式(standard): 拦截高风险请求，中风险请求放行。\n- 严格模式(strict): 拦截高风险和中风险请求 (推荐)。\n- 激进模式(aggressive): 拦截所有可疑请求并自动拉黑攻击者。\n\n快捷指令：管理员可发送 `/切换防护模式` 循环切换。",
         "obvious_hint": true
     },
     "auto_blacklist": {
