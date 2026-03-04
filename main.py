@@ -27,7 +27,10 @@ try:
 except ImportError:
     from ptd_core import PromptThreatDetector
 
-from webui_server import PromptGuardianWebUI
+try:
+    from .webui_server import PromptGuardianWebUI
+except ImportError:
+    from webui_server import PromptGuardianWebUI
 
 PLUGIN_VERSION = "1.0.0"
 

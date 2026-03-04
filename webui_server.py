@@ -7,7 +7,10 @@ from typing import Any, Dict, List, Optional, Tuple
 from urllib.parse import parse_qs, quote_plus, urlparse
 
 from astrbot.api import logger
-from webui_resources import STATUS_PANEL_TEMPLATE, WEBUI_STYLE
+try:
+    from .webui_resources import STATUS_PANEL_TEMPLATE, WEBUI_STYLE
+except ImportError:
+    from webui_resources import STATUS_PANEL_TEMPLATE, WEBUI_STYLE
 
 class PromptGuardianWebUI:
     def __init__(self, plugin: Any, host: str, port: int, session_timeout: int):
