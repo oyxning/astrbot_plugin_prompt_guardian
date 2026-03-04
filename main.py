@@ -73,6 +73,20 @@ class PromptGuardian(Star):
         self.config.save_config()
 
         modes = ["passive", "standard", "aggressive", "strict"]
+        mode_mapping = {
+            "观察模式": "passive",
+            "标准模式": "standard",
+            "激进模式": "aggressive",
+            "严格模式": "strict",
+            "Passive": "passive",
+            "Standard": "standard",
+            "Aggressive": "aggressive",
+            "Strict": "strict",
+            "sentry": "passive",
+            "aegis": "standard",
+            "scorch": "aggressive",
+            "intercept": "strict",
+        }
         current_mode = self.config.get("defense_mode", "strict")
         if current_mode in mode_mapping:
             self.config["defense_mode"] = mode_mapping[current_mode]
